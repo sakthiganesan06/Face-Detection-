@@ -1,0 +1,61 @@
+# Environment & secrets
+.env
+*.env
+*credentials*.json
+*service-account*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.Python
+env/
+venv/
+ENV/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project data (keep structure, not data)
+data/input/*
+data/candidates/*
+data/evidence/*
+data/results/*
+!data/input/.gitkeep
+!data/candidates/.gitkeep
+!data/evidence/.gitkeep
+!data/results/.gitkeep
+
+# Model cache
+models/
+.insightface/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Contract artifacts
+app/blockchain/compiled_contract.json
+app/blockchain/deployed_address.txt

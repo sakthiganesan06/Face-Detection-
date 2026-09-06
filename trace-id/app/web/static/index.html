@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRACE-ID — Face ID & Social Media Reverse Image Search</title>
+  <meta name="description" content="Decentralized identity tracing, multi-source reverse image search, facial biometric verification, and Ethereum blockchain anchoring.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+  <div class="glow-orb orb-3"></div>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a10 10 0 0 0-7.07 17.07M12 22a10 10 0 0 0 7.07-17.07"/>
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M7 12h-2M19 12h-2M12 7V5M12 19v-2"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>TRACE<span>-ID</span></h1>
+          <p class="tagline">Biometric Search & On-Chain Provenance</p>
+        </div>
+      </div>
+      <div class="network-badge" id="networkBadge">
+        <span class="pulse-dot"></span>
+        <span id="networkName">Connecting to EVM...</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <div class="container">
+
+      <!-- Hero Banner -->
+      <section class="hero-section">
+        <h2 class="hero-title">Recognize Faces. Discover Posts. <span class="gradient-text">Anchor Proof.</span></h2>
+        <p class="hero-desc">
+          Upload any face photo to detect biometrics with ArcFace, perform live multi-source reverse image search across Google Lens, discover matching Instagram & X posts, and cryptographically anchor the proof to the Ethereum blockchain.
+        </p>
+      </section>
+
+      <!-- Input / Upload Card -->
+      <section class="card upload-card" id="uploadSection">
+        <div class="drop-zone" id="dropZone">
+          <input type="file" id="fileInput" accept="image/png, image/jpeg, image/webp" hidden>
+          <div class="drop-prompt" id="dropPrompt">
+            <div class="upload-icon-wrapper">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+              </svg>
+            </div>
+            <h3>Drag & Drop Image Here</h3>
+            <p>or <button type="button" class="btn-link" id="browseBtn">Browse Files</button> from your computer</p>
+            <div class="file-hints">Supports JPG, PNG, WebP • Max 15MB</div>
+          </div>
+          
+          <div class="preview-wrapper" id="previewWrapper" style="display: none;">
+            <img id="imagePreview" alt="Input Preview" src="">
+            <div class="preview-overlay">
+              <button type="button" class="btn-icon" id="removeImgBtn" title="Remove Image">✕</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Samples & Actions -->
+        <div class="upload-footer">
+          <div class="sample-picker">
+            <span>Quick Samples:</span>
+            <button type="button" class="sample-btn" data-sample="sundar_pichai.png">Sundar Pichai (Sample)</button>
+          </div>
+
+          <div class="action-row">
+            <div class="candidates-selector">
+              <label for="maxCandidates">Max Candidates:</label>
+              <select id="maxCandidates">
+                <option value="10">10 Sources</option>
+                <option value="15" selected>15 Sources</option>
+                <option value="25">25 Sources</option>
+              </select>
+            </div>
+            <button type="button" class="btn-primary" id="analyzeBtn" disabled>
+              <span class="btn-text">Start Search & Verification</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Processing Status Stepper -->
+      <section class="card status-card" id="statusCard" style="display: none;">
+        <div class="stepper-header">
+          <h3 id="stepperTitle">Executing Verification Pipeline...</h3>
+          <span class="spinner" id="pipelineSpinner"></span>
+        </div>
+        <div class="stepper">
+          <div class="step-item" id="step1">
+            <div class="step-icon">1</div>
+            <div class="step-content">
+              <h4>Face Detection & Encoding</h4>
+              <p>Extracting 512-d ArcFace biometrics</p>
+            </div>
+          </div>
+          <div class="step-item" id="step2">
+            <div class="step-icon">2</div>
+            <div class="step-content">
+              <h4>Multi-Source Reverse Search</h4>
+              <p>Google Lens & Web discovery</p>
+            </div>
+          </div>
+          <div class="step-item" id="step3">
+            <div class="step-icon">3</div>
+            <div class="step-content">
+              <h4>Dual AI Verification</h4>
+              <p>ArcFace cosine + DINOv2 vision</p>
+            </div>
+          </div>
+          <div class="step-item" id="step4">
+            <div class="step-icon">4</div>
+            <div class="step-content">
+              <h4>Evidence Manifest & SHA-256</h4>
+              <p>Deterministic JSON hash</p>
+            </div>
+          </div>
+          <div class="step-item" id="step5">
+            <div class="step-icon">5</div>
+            <div class="step-content">
+              <h4>Blockchain Anchoring</h4>
+              <p>On-chain smart contract anchor</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results Section -->
+      <section class="results-section" id="resultsSection" style="display: none;">
+        
+        <!-- Recognized Subject Banner -->
+        <div class="card person-banner">
+          <div class="person-info">
+            <div class="avatar-ring">
+              <img id="resultThumb" src="" alt="Subject">
+            </div>
+            <div>
+              <div class="badge-verified">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Identity Recognized
+              </div>
+              <h2 id="personName" class="person-name">Recognized Person</h2>
+              <p class="person-meta" id="pipelineTiming">Pipeline completed in 0.0s</p>
+            </div>
+          </div>
+          <div class="match-score-pill">
+            <div class="score-number" id="bestScore">98.0%</div>
+            <div class="score-label">Composite Confidence</div>
+          </div>
+        </div>
+
+        <!-- Social Media Grid -->
+        <div class="section-heading">
+          <h3>Verified Social Media Posts</h3>
+          <span class="count-badge" id="socialCount">0 Found</span>
+        </div>
+        <div class="social-grid" id="socialGrid">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Blockchain Provenance Proof -->
+        <div class="card blockchain-proof-card">
+          <div class="card-header-flex">
+            <div>
+              <h3>Blockchain Provenance & Cryptographic Proof</h3>
+              <p class="subtext">Immutable evidence anchored to Ethereum Smart Contract</p>
+            </div>
+            <a href="#" id="etherscanTxLink" target="_blank" class="btn-secondary">
+              View on Etherscan
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+
+          <div class="proof-grid">
+            <div class="proof-item">
+              <label>Record ID</label>
+              <div class="code-box" id="proofRecordId">-</div>
+            </div>
+            <div class="proof-item">
+              <label>Canonical Manifest SHA-256</label>
+              <div class="code-box hash-highlight" id="proofHash">-</div>
+            </div>
+            <div class="proof-item">
+              <label>Contract Address</label>
+              <div class="code-box" id="proofContract">-</div>
+            </div>
+            <div class="proof-item">
+              <label>Transaction Hash</label>
+              <div class="code-box" id="proofTx">-</div>
+            </div>
+          </div>
+
+          <!-- Audit & Tamper Action Toolbar -->
+          <div class="audit-toolbar">
+            <button type="button" class="btn-audit" id="runAuditBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Verify On-Chain Integrity
+            </button>
+            <button type="button" class="btn-tamper-demo" id="runTamperDemoBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01"/></svg>
+              Simulate Tamper Detection
+            </button>
+          </div>
+
+          <div id="auditResultBox" class="audit-result-box" style="display: none;"></div>
+        </div>
+
+        <!-- All Candidates Table Collapsible -->
+        <details class="card details-accordion">
+          <summary>View All Evaluated Web Candidates & Scores</summary>
+          <div class="table-responsive">
+            <table class="candidates-table" id="candidatesTable">
+              <thead>
+                <tr>
+                  <th>Platform / Domain</th>
+                  <th>Title</th>
+                  <th>Face Sim</th>
+                  <th>Visual Sim</th>
+                  <th>Final Score</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <div class="container">
+      <p>TRACE-ID • Live Face ID & Reverse Image Search Verification Pipeline • Hacker House Goa 2026</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

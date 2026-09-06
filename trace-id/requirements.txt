@@ -1,0 +1,43 @@
+# ══════════════════════════════════════════════════════════════
+#  TRACE-ID — requirements.txt
+#  Traceable Identity & Digital Evidence
+# ══════════════════════════════════════════════════════════════
+
+# ── Core Python ────────────────────────────────────────────────
+python-dotenv>=1.0.0
+click>=8.1.7
+rich>=13.7.0              # Beautiful terminal output
+
+# ── Computer Vision — Face ─────────────────────────────────────
+insightface>=0.7.3
+onnxruntime>=1.17.0       # CPU inference for InsightFace
+opencv-python>=4.9.0      # Image I/O and processing
+numpy>=1.24.0
+
+# ── Computer Vision — Visual (DINOv2) ─────────────────────────
+torch>=2.2.0              # PyTorch for DINOv2
+torchvision>=0.17.0       # Image transforms
+Pillow>=10.2.0            # PIL for image loading
+
+# ── Reverse Image Search ───────────────────────────────────────
+google-search-results>=2.4.2   # SerpApi official client
+google-cloud-vision>=3.7.0     # Google Cloud Vision API
+
+# ── HTTP / Networking ──────────────────────────────────────────
+requests>=2.31.0
+urllib3>=2.2.0
+
+# ── Blockchain ─────────────────────────────────────────────────
+web3>=6.15.0
+py-solc-x>=2.0.0          # Solidity compiler (py-solc-x installs solc)
+
+# ── Cryptography ───────────────────────────────────────────────
+# hashlib is stdlib — no extra install needed
+
+# ── Testing ────────────────────────────────────────────────────
+pytest>=8.1.0
+pytest-mock>=3.12.0
+
+# ── Utilities ──────────────────────────────────────────────────
+python-dateutil>=2.9.0
+tqdm>=4.66.0
