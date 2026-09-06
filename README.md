@@ -1,47 +1,59 @@
-TRACE-ID
-Traceable Identity & Digital Evidence
-"Discover. Verify. Anchor."
-Python 3.10+ Polygon Amoy Ethereum Sepolia License: MIT
+# TRACE-ID
+### Traceable Identity & Digital Evidence
+#### *"Discover. Verify. Anchor."*
 
-TRACE-ID is a biometric identity tracing & digital evidence anchoring pipeline designed for Hacker House Goa 2026 Task #3:
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org)
+[![Polygon Amoy](https://img.shields.io/badge/blockchain-Polygon%20Amoy-8247e5.svg)](https://amoy.polygonscan.com)
+[![Ethereum Sepolia](https://img.shields.io/badge/blockchain-Ethereum%20Sepolia-627eea.svg)](https://sepolia.etherscan.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-Face Detection & Prominence Selection: Detects all human faces in an input image using InsightFace SCRFD-10G, calculates bounding box area, proximity to center, and detection quality, selecting the primary foreground subject while logging all faces.
-ArcFace Embedding: Generates a 512-dimensional L2-normalized biometric embedding vector using ArcFace R100 (buffalo_l).
-OCR & Watermark Context Discovery: Extracts visible creator watermarks, handles, and text overlays (using EasyOCR and Google Cloud Vision) to augment public search discovery.
-Genuine Multi-Source Web Discovery:
-Google Lens via SerpApi: Full-image + isolated face-crop discovery.
-Google Reverse Image via SerpApi: Image results, inline images, matching pages.
-Google Cloud Vision Web Detection: Matching pages, full/partial images, visual matches.
-Public Web Page Scraper (Layer 6): Extracts embedded high-resolution candidate images from discovered web articles and posts.
-Different-Photo Same-Person Face Verification:
-Downloads accessible candidate images.
-Detects all candidate faces and evaluates each against the input reference embedding using ArcFace.
-Does NOT require the exact input photo to exist online: Successfully verifies different photos, poses, lighting, and environments of the same person.
-Secondary DINOv2 Visual Verification: Computes 384-d vision transformer embeddings (ViT-S/14) as a secondary whole-image similarity signal without overriding biometric face matches.
-Deterministic Evidence Manifest: Assembles a canonical JSON manifest (version 1.0, sorted keys, deterministic formatting) and computes an immutable SHA-256 fingerprint.
-Blockchain Anchoring: Anchors the cryptographic evidence hash to an EVM Smart Contract (EvidenceRegistry.sol) on Polygon Amoy & Ethereum Sepolia Testnets.
-On-Chain Audit & Tamper Demonstration: Recomputes the SHA-256 hash from local JSON and verifies it against the immutable blockchain registry, instantly identifying any tampering.
-Important
+**TRACE-ID** is a biometric identity tracing & digital evidence anchoring pipeline designed for **Hacker House Goa 2026 Task #3**:
 
-Core Principle: Reverse-image search performs web discovery. ArcFace performs independent facial verification of discovered candidate images. The system does not require the exact input image to exist online.
+1. **Face Detection & Prominence Selection**: Detects all human faces in an input image using **InsightFace SCRFD-10G**, calculates bounding box area, proximity to center, and detection quality, selecting the primary foreground subject while logging all faces.
+2. **ArcFace Embedding**: Generates a 512-dimensional L2-normalized biometric embedding vector using ArcFace R100 (`buffalo_l`).
+3. **OCR & Watermark Context Discovery**: Extracts visible creator watermarks, handles, and text overlays (using **EasyOCR** and Google Cloud Vision) to augment public search discovery.
+4. **Genuine Multi-Source Web Discovery**:
+   - **Google Lens via SerpApi**: Full-image + isolated face-crop discovery.
+   - **Google Reverse Image via SerpApi**: Image results, inline images, matching pages.
+   - **Google Cloud Vision Web Detection**: Matching pages, full/partial images, visual matches.
+   - **Public Web Page Scraper (Layer 6)**: Extracts embedded high-resolution candidate images from discovered web articles and posts.
+5. **Different-Photo Same-Person Face Verification**:
+   - Downloads accessible candidate images.
+   - Detects all candidate faces and evaluates each against the input reference embedding using ArcFace.
+   - **Does NOT require the exact input photo to exist online**: Successfully verifies different photos, poses, lighting, and environments of the same person.
+6. **Secondary DINOv2 Visual Verification**: Computes 384-d vision transformer embeddings (ViT-S/14) as a secondary whole-image similarity signal without overriding biometric face matches.
+7. **Deterministic Evidence Manifest**: Assembles a canonical JSON manifest (version 1.0, sorted keys, deterministic formatting) and computes an immutable **SHA-256 fingerprint**.
+8. **Blockchain Anchoring**: Anchors the cryptographic evidence hash to an EVM Smart Contract (`EvidenceRegistry.sol`) on **Polygon Amoy & Ethereum Sepolia Testnets**.
+9. **On-Chain Audit & Tamper Demonstration**: Recomputes the SHA-256 hash from local JSON and verifies it against the immutable blockchain registry, instantly identifying any tampering.
 
-Identity Disclaimer: Face similarity indicates biometric visual correspondence between the input image and discovered public content. This does NOT prove account ownership, authorship, or legal real-world identity. Blockchain anchoring cryptographically proves the integrity of the evidence record at a specific timestamp; it does not prove identity or ownership. Zero raw biometric vectors are stored on-chain.
+> [!IMPORTANT]
+> **Core Principle**: Reverse-image search performs web discovery. ArcFace performs independent facial verification of discovered candidate images. The system does not require the exact input image to exist online.
+>
+> **Identity Disclaimer**: Face similarity indicates biometric visual correspondence between the input image and discovered public content. This does NOT prove account ownership, authorship, or legal real-world identity. Blockchain anchoring cryptographically proves the integrity of the evidence record at a specific timestamp; it does not prove identity or ownership. Zero raw biometric vectors are stored on-chain.
 
-Table of Contents
-Architecture
-Technologies
-Candidate Extraction Layers
-Setup & Installation
-Environment Configuration
-Usage & CLI Commands
-11-Stage Pipeline Overview
-Evidence Manifest & Hashing
-Blockchain Integration
-Audit & Tamper Demonstration
-Testing & Validation
-Ethical, Privacy & Safety Considerations
-Hacker House Goa Task #3 Compliance
-Architecture
+---
+
+## Table of Contents
+
+- [Architecture](#architecture)
+- [Technologies](#technologies)
+- [Candidate Extraction Layers](#candidate-extraction-layers)
+- [Setup & Installation](#setup--installation)
+- [Environment Configuration](#environment-configuration)
+- [Usage & CLI Commands](#usage--cli-commands)
+- [11-Stage Pipeline Overview](#11-stage-pipeline-overview)
+- [Evidence Manifest & Hashing](#evidence-manifest--hashing)
+- [Blockchain Integration](#blockchain-integration)
+- [Audit & Tamper Demonstration](#audit--tamper-demonstration)
+- [Testing & Validation](#testing--validation)
+- [Ethical, Privacy & Safety Considerations](#ethical-privacy--safety-considerations)
+- [Hacker House Goa Task #3 Compliance](#hacker-house-goa-task-3-compliance)
+
+---
+
+## Architecture
+
+```
 INPUT PHOTO
      │
      ▼
@@ -120,38 +132,52 @@ INPUT PHOTO
 │  Recompute SHA-256 vs. On-Chain Registry     │
 │  → VERIFIED / TAMPERED                       │
 └──────────────────────────────────────────────┘
-Technologies
-Component	Technology	Purpose
-Face Detection & Recognition	InsightFace buffalo_l (SCRFD-10G + ArcFace R100)	512-dim face embeddings, multi-face prominence scoring, cosine similarity
-OCR & Text Extraction	EasyOCR + Google Cloud Vision Text Detection	Extracts visible creator watermarks, page names, and usernames
-Primary Reverse Search	Google Lens via SerpApi	Live full-image and face-crop reverse image discovery
-Secondary Reverse Search	Google Reverse Image via SerpApi	Direct matching image results and inline images
-Web Detection Search	Google Cloud Vision Web Detection	Matching pages, visually similar images, and web entities
-Page Image Extractor	BeautifulSoup4 + Requests	Extracts embedded images from discovered public news/web pages
-Secondary Visual Verification	DINOv2 ViT-S/14 (Facebook Research)	384-dim whole-image visual resemblance check
-Evidence Hashing	SHA-256 (hashlib)	Cryptographic fingerprinting of canonical JSON manifest
-Smart Contract	Solidity (EvidenceRegistry.sol)	On-chain registry mapping recordId 
-→
- evidenceHash
-Blockchain Client	Web3.py	Polygon Amoy & Ethereum Sepolia transaction execution
-CLI & Diagnostics	Click + Rich	Structured terminal pipeline reporting
-Candidate Extraction Layers
+```
+
+---
+
+## Technologies
+
+| Component | Technology | Purpose |
+| :--- | :--- | :--- |
+| **Face Detection & Recognition** | InsightFace `buffalo_l` (SCRFD-10G + ArcFace R100) | 512-dim face embeddings, multi-face prominence scoring, cosine similarity |
+| **OCR & Text Extraction** | EasyOCR + Google Cloud Vision Text Detection | Extracts visible creator watermarks, page names, and usernames |
+| **Primary Reverse Search** | Google Lens via SerpApi | Live full-image and face-crop reverse image discovery |
+| **Secondary Reverse Search** | Google Reverse Image via SerpApi | Direct matching image results and inline images |
+| **Web Detection Search** | Google Cloud Vision Web Detection | Matching pages, visually similar images, and web entities |
+| **Page Image Extractor** | BeautifulSoup4 + Requests | Extracts embedded images from discovered public news/web pages |
+| **Secondary Visual Verification** | DINOv2 ViT-S/14 (Facebook Research) | 384-dim whole-image visual resemblance check |
+| **Evidence Hashing** | SHA-256 (`hashlib`) | Cryptographic fingerprinting of canonical JSON manifest |
+| **Smart Contract** | Solidity (`EvidenceRegistry.sol`) | On-chain registry mapping `recordId` $\rightarrow$ `evidenceHash` |
+| **Blockchain Client** | Web3.py | Polygon Amoy & Ethereum Sepolia transaction execution |
+| **CLI & Diagnostics** | Click + Rich | Structured terminal pipeline reporting |
+
+---
+
+## Candidate Extraction Layers
+
 Discovery executes in strict hierarchical order:
 
-Layer 1: Exact reverse-image results (Google Lens & Google Reverse Image).
-Layer 2: Matching web pages (Google Lens & SerpApi).
-Layer 3: Visual matches (Google Lens visual approximations).
-Layer 4: Cloud Vision web detection (pages with matching images, full/partial images).
-Layer 5: OCR / Contextual discovery (searches public pages for detected watermark strings).
-Layer 6: Public web page scraper (extracts embedded photos from discovered web articles).
-Setup & Installation
-1. Prerequisites
-Python 3.10+
-Git
-Dedicated testnet wallet with Polygon Amoy or Ethereum Sepolia testnet tokens (from public faucets)
-SerpApi API key (from serpapi.com)
-Google Cloud Service Account with Vision API enabled
-2. Installation
+1. **Layer 1**: Exact reverse-image results (Google Lens & Google Reverse Image).
+2. **Layer 2**: Matching web pages (Google Lens & SerpApi).
+3. **Layer 3**: Visual matches (Google Lens visual approximations).
+4. **Layer 4**: Cloud Vision web detection (pages with matching images, full/partial images).
+5. **Layer 5**: OCR / Contextual discovery (searches public pages for detected watermark strings).
+6. **Layer 6**: Public web page scraper (extracts embedded photos from discovered web articles).
+
+---
+
+## Setup & Installation
+
+### 1. Prerequisites
+- Python 3.10+
+- Git
+- Dedicated testnet wallet with Polygon Amoy or Ethereum Sepolia testnet tokens (from public faucets)
+- SerpApi API key (from [serpapi.com](https://serpapi.com/))
+- Google Cloud Service Account with Vision API enabled
+
+### 2. Installation
+```bash
 # Clone the repository
 git clone https://github.com/your-username/trace-id.git
 cd trace-id
@@ -163,9 +189,15 @@ venv\Scripts\activate          # Windows
 
 # Install dependencies
 pip install -r requirements.txt
-Environment Configuration
-Copy .env.example to .env and fill in your keys:
+```
 
+---
+
+## Environment Configuration
+
+Copy `.env.example` to `.env` and fill in your keys:
+
+```env
 # API Keys
 SERPAPI_API_KEY=your_serpapi_key_here
 GOOGLE_APPLICATION_CREDENTIALS=path/to/service-account.json
@@ -185,28 +217,50 @@ DISCOVERY_WEIGHT=0.10
 # Pipeline Settings
 MAX_CANDIDATES=12
 MOCK_MODE=false
-Usage & CLI Commands
-1. Full Pipeline Run (Real Live APIs)
+```
+
+---
+
+## Usage & CLI Commands
+
+### 1. Full Pipeline Run (Real Live APIs)
+```bash
 python -m app.main --image data/input/sundar_pichai.png
+```
+
 If the input image contains multiple people, select a specific face:
-
+```bash
 python -m app.main --image data/input/group_photo.jpg --face-index 0
-2. Blockchain Audit Mode
+```
+
+### 2. Blockchain Audit Mode
 Verify an existing evidence manifest against the on-chain registry:
-
+```bash
 python -m app.main --audit data/evidence/manifest.json
-Or run offline verification against the local .sha256 hash:
+```
 
+Or run offline verification against the local `.sha256` hash:
+```bash
 python -m app.main --audit data/evidence/manifest.json --mock-blockchain
-3. Tamper Detection Demonstration
-Simulate an attacker altering the manifest and verify the VERIFIED -> TAMPERED detection:
+```
 
+### 3. Tamper Detection Demonstration
+Simulate an attacker altering the manifest and verify the `VERIFIED -> TAMPERED` detection:
+```bash
 python -m app.main --tamper-demo data/evidence/manifest.json
-4. Deploy Smart Contract
-To deploy your own EvidenceRegistry contract to Polygon Amoy:
+```
 
+### 4. Deploy Smart Contract
+To deploy your own `EvidenceRegistry` contract to Polygon Amoy:
+```bash
 python -m app.blockchain.deploy
-11-Stage Pipeline Overview
+```
+
+---
+
+## 11-Stage Pipeline Overview
+
+```
 ========================================
 TRACE-ID PIPELINE
 ========================================
@@ -299,9 +353,15 @@ Block number: 11649074
 MATCH FOUND
 Evidence anchored on Ethereum Sepolia
 ========================================
-Evidence Manifest & Hashing
+```
+
+---
+
+## Evidence Manifest & Hashing
+
 When a verified match is found, TRACE-ID builds a canonical JSON document:
 
+```json
 {
   "version": "1.0",
   "record_id": "86029889cd5ffba14397cde2eb8ebb737ec38f7e165fc152199daf30edc9606c",
@@ -346,13 +406,18 @@ When a verified match is found, TRACE-ID builds a canonical JSON document:
   "discovered_at": "2026-09-06T18:48:14+00:00",
   "pipeline": "TRACE-ID v1.0"
 }
-The canonical hash is computed: 
-'_' allowed only in math mode
-$$\text{evidence_hash} = \text{SHA-256}(\text{canonicalize}(\text{manifest}))$$
+```
 
-Blockchain Integration
-The smart contract EvidenceRegistry.sol provides an immutable on-chain record:
+The canonical hash is computed:
+$$\text{evidence\_hash} = \text{SHA-256}(\text{canonicalize}(\text{manifest}))$$
 
+---
+
+## Blockchain Integration
+
+The smart contract [`EvidenceRegistry.sol`](file:///d:/GitHub/face%20id/trace-id/app/blockchain/contract.sol) provides an immutable on-chain record:
+
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
@@ -382,11 +447,18 @@ contract EvidenceRegistry {
         return records[recordId].evidenceHash == evidenceHash;
     }
 }
-Audit & Tamper Demonstration
-1. Unmodified Verification
-python -m app.main --audit data/evidence/manifest.json --mock-blockchain
-Output:
+```
 
+---
+
+## Audit & Tamper Demonstration
+
+### 1. Unmodified Verification
+```bash
+python -m app.main --audit data/evidence/manifest.json --mock-blockchain
+```
+Output:
+```text
 ========================================
 BLOCKCHAIN AUDIT
 ========================================
@@ -402,10 +474,14 @@ fb2e5a7787a41b66398330ae85ca6c2ee89a202ac7afb2b77d7bcac28249bb05
 Status:
 VERIFIED — EVIDENCE UNCHANGED
 ========================================
-2. Malicious Modification Tamper Detection
-python -m app.main --tamper-demo data/evidence/manifest.json
-Output:
+```
 
+### 2. Malicious Modification Tamper Detection
+```bash
+python -m app.main --tamper-demo data/evidence/manifest.json
+```
+Output:
+```text
 ========================================
 TRACE-ID — TAMPER DETECTION DEMO
 ========================================
@@ -430,10 +506,18 @@ Original manifest: data/evidence/manifest.json
 
 Result: VERIFIED -> TAMPERED successfully demonstrated.
 ========================================
-Testing & Validation
-Run the automated test suite:
+```
 
+---
+
+## Testing & Validation
+
+Run the automated test suite:
+```bash
 python -m pytest tests/ -v
+```
+
+```text
 ============================= test session starts =============================
 tests/test_audit.py (11 tests) ........................................ PASSED
 tests/test_canonicalize.py (15 tests) ................................. PASSED
@@ -451,18 +535,31 @@ tests/test_scoring.py (10 tests) ...................................... PASSED
 tests/test_url_normalization.py (30 tests) ............................ PASSED
 
 ============================= 93 passed in 0.61s ==============================
-Ethical, Privacy & Safety Considerations
-Consenting Test Data: Use only your own photos, consenting test subjects, or public/authorized content.
-No Mass Surveillance: The system is designed for verifiable proof of public presence, not unrestricted facial recognition of private citizens.
-No Biometrics On-Chain: Raw 512-d embeddings are discarded from RAM after verification and are never stored on disk or written to the blockchain.
-Zero Fabrication: If discovery APIs return no matches, the system reports NO_VERIFIED_MATCH and explains the bottleneck rather than hallucinating links.
-Hacker House Goa Task #3 Compliance
-Requirement	Implementation in TRACE-ID	Status
-Detect and encode face	InsightFace SCRFD-10G + ArcFace R100 512-d embeddings	✅ Complete
-Genuine reverse-image search	Live Google Lens + Google Reverse Image + Google Cloud Vision + EasyOCR	✅ Complete
-Find real matching public posts	Dynamically extracted social media URLs (Instagram, X, LinkedIn, YouTube, Facebook)	✅ Complete
-Different-photo verification	ArcFace invariant biometric decision gate (independent of background/pose)	✅ Complete
-Tamper-evident blockchain record	Canonical JSON SHA-256 hash anchored to Polygon Amoy / Ethereum Sepolia smart contract	✅ Complete
-Audit & Tamper Demonstration	Live blockchain replay + local verification (VERIFIED -> TAMPERED)	✅ Complete
-Zero Mocking / Fabrication	All candidate links originate from live API discovery	✅ Complete
-TRACE-ID — Hacker House Goa 2026 Submission
+```
+
+---
+
+## Ethical, Privacy & Safety Considerations
+
+1. **Consenting Test Data**: Use only your own photos, consenting test subjects, or public/authorized content.
+2. **No Mass Surveillance**: The system is designed for verifiable proof of public presence, not unrestricted facial recognition of private citizens.
+3. **No Biometrics On-Chain**: Raw 512-d embeddings are discarded from RAM after verification and are **never** stored on disk or written to the blockchain.
+4. **Zero Fabrication**: If discovery APIs return no matches, the system reports `NO_VERIFIED_MATCH` and explains the bottleneck rather than hallucinating links.
+
+---
+
+## Hacker House Goa Task #3 Compliance
+
+| Requirement | Implementation in TRACE-ID | Status |
+| :--- | :--- | :--- |
+| **Detect and encode face** | InsightFace SCRFD-10G + ArcFace R100 512-d embeddings | ✅ Complete |
+| **Genuine reverse-image search** | Live Google Lens + Google Reverse Image + Google Cloud Vision + EasyOCR | ✅ Complete |
+| **Find real matching public posts** | Dynamically extracted social media URLs (Instagram, X, LinkedIn, YouTube, Facebook) | ✅ Complete |
+| **Different-photo verification** | ArcFace invariant biometric decision gate (independent of background/pose) | ✅ Complete |
+| **Tamper-evident blockchain record** | Canonical JSON SHA-256 hash anchored to Polygon Amoy / Ethereum Sepolia smart contract | ✅ Complete |
+| **Audit & Tamper Demonstration** | Live blockchain replay + local verification (`VERIFIED -> TAMPERED`) | ✅ Complete |
+| **Zero Mocking / Fabrication** | All candidate links originate from live API discovery | ✅ Complete |
+
+---
+
+*TRACE-ID — Hacker House Goa 2026 Submission*
