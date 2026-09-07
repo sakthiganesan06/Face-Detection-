@@ -34,6 +34,15 @@ py-solc-x>=2.0.0          # Solidity compiler (py-solc-x installs solc)
 # ── Cryptography ───────────────────────────────────────────────
 # hashlib is stdlib — no extra install needed
 
+# ── OCR & Web Scraping ─────────────────────────────────────────
+easyocr>=1.7.0
+beautifulsoup4>=4.12.0
+
+# ── Web UI / Server (Optional) ─────────────────────────────────
+fastapi>=0.110.0
+uvicorn>=0.28.0
+python-multipart>=0.0.9
+
 # ── Testing ────────────────────────────────────────────────────
 pytest>=8.1.0
 pytest-mock>=3.12.0

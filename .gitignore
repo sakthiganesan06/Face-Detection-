@@ -25,7 +25,7 @@ venv/
 ENV/
 .venv/
 
-# Testing & Coverage
+# Testing & Linting
 .pytest_cache/
 .coverage
 htmlcov/
@@ -39,23 +39,25 @@ htmlcov/
 .DS_Store
 Thumbs.db
 
-# Project runtime data & temporary downloads
-data/candidates/*
-!data/candidates/.gitkeep
-data/results/*
-!data/results/.gitkeep
-data/evidence/*.tampered.json
-data/input/.crop_*
-
-# Model weights & caches
+# Model weights & large downloaded caches
 models/
 .insightface/
 .cache/
+torch/
 
-# Jupyter & Logs
-.ipynb_checkpoints/
+# Local submodules / other test folders
+Face detection/
+Face\ detection/
+
+# Project candidate runtime data (keep structure with .gitkeep)
+**/data/candidates/*
+!**/data/candidates/.gitkeep
+**/data/results/*
+!**/data/results/.gitkeep
+**/data/evidence/*.tampered.json
+**/data/input/.crop_*
+
+# Logs & temp files
 *.log
-
-# Blockchain build artifacts
-app/blockchain/compiled_contract.json
-app/blockchain/deployed_address.txt
+scratch/
+.system_generated/

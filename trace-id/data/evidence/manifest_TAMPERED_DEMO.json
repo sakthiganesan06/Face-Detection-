@@ -1,0 +1,186 @@
+{
+  "version": "1.0",
+  "record_id": "a1a2407f91ed68e028aeca2ab60373c5",
+  "recognized_person": "Thalapathy Vijay",
+  "platform": "facebook.com",
+  "post_url": "https://www.facebook.com/61579273543444/posts/\u0924\u092e\u093f\u0932\u0928\u093e\u0921\u0941\u0915\u093e-cm-\u0935\u093f\u091c\u092f-\u0925\u0932\u093e\u092a\u0924\u093f\u0932\u0947-\u0917\u0930\u0947-\u0928\u0947\u092a\u093e\u0932\u0932\u093e\u0908-\u0968\u096b-\u0915\u0930\u094b\u0921-\u0938\u0939\u092f\u094b\u0917-\u0928\u0947\u092a\u093e\u0932\u0915\u093e-\u092c\u093e\u0922\u0940-\u092a\u0939\u093f\u0930\u094b-\u092a\u0940\u0921\u093f\u0924-/122168177234975784",
+  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaqyeE3w4agNy8-ho_Pe84wS4ByNjKUStjbc_EnHB5WR_AeJ5N",
+  "domain": "facebook.com",
+  "candidate_type": "social",
+  "content_image_sha256": "d6a1891f1927d5b9ea1af551c0bb8f687c2258a0eb1047f1a23efa85f8641225",
+  "verified_social_posts": [
+    {
+      "platform": "Instagram",
+      "post_type": "Post",
+      "url": "https://www.instagram.com/p/DX7DVLIDW2W",
+      "title": "My hearty congratulations to @actorvijay garu on this ...",
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/images?q=tbn%3AANd9GcS8vzCRiag22c6h3-HytNh8eKNCzXzc8CTHhsQSfpmjTGS-reRO",
+      "face_similarity": 0.8288,
+      "visual_similarity": 0.909,
+      "score": 0.87
+    },
+    {
+      "platform": "Instagram",
+      "post_type": "Reel",
+      "url": "https://www.instagram.com/reel/DXZAWQFCfkx",
+      "title": "WATCH: Thalapathy Vijay cute moments at the campaign event ...",
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn%3AANd9GcRkAX25YukvQq3dPWRNteD80-ljLX0OsL4GgwY_w9Bb_EyJLg5J",
+      "face_similarity": 0.8214,
+      "visual_similarity": 0.7005,
+      "score": 0.803
+    },
+    {
+      "platform": "X (Twitter)",
+      "post_type": "Tweet / Post",
+      "url": "https://x.com/premkumaractor/status/2053079239818387584",
+      "title": "Prem Kumar on X: \"C. Joseph Vijay ennum naan ...",
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn%3AANd9GcQxyo-wqrYdBS8ogHzpPKAFY6Du9w1hvYkDJLaF3jv7GA3t19DY",
+      "face_similarity": 0.8103,
+      "visual_similarity": 0.9026,
+      "score": 0.857
+    },
+    {
+      "platform": "Reddit",
+      "post_type": "Post / Comment",
+      "url": "https://www.reddit.com/r/KollyGossips/comments/1tzeub4/why_didnt_vijay_talk_in_support_of_sangeetha",
+      "title": "Why didn't vijay talk in support of Sangeetha? : r/KollyGossips",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTs5kJKNb-cWW_1_vTSX03UID_KTczdAFIzH9FY-74b5-dNTNYp",
+      "face_similarity": 0.8386,
+      "visual_similarity": 0.9023,
+      "score": 0.8738
+    },
+    {
+      "platform": "Instagram",
+      "post_type": "Reel",
+      "url": "https://www.instagram.com/reel/DYFQS4OvuuG",
+      "title": "\ud83c\udf1f History in the making! Congratulations to Thalapathy ...",
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn%3AANd9GcQ50UDrQoqH9ilPIW1Gc7EXfHXAn8uNRLYtxiDdCFhkKK_IMh5b",
+      "face_similarity": 0.687,
+      "visual_similarity": 0.9038,
+      "score": 0.7833
+    },
+    {
+      "platform": "X (Twitter)",
+      "post_type": "Tweet / Post",
+      "url": "https://x.com/SavukkuOfficial/status/2096815530359574627",
+      "title": "Savukku Shankar on X: \"83K on Polimer. 56K on Puthiya ...",
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn%3AANd9GcRU5PLLdeoyUYu65tNQqM6xrUFJ-W-TULI3bxoiCX6qInnW_HyL",
+      "face_similarity": 0.8119,
+      "visual_similarity": 0.9045,
+      "score": 0.8585
+    },
+    {
+      "platform": "TikTok",
+      "post_type": "Video",
+      "url": "https://www.tiktok.com/@thalapathy.vijay.fans/video/7649037393479142677",
+      "title": "TVK Vijay \ud83e\udd70\ud83e\ude77 #foryoupage #viralreels #thalapathy ...",
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn%3AANd9GcSBKw49p0_R3wTb4u-YT1m_WRwCeZuhuJz9drNI28NKXn1AyRJ2",
+      "face_similarity": 0.8243,
+      "visual_similarity": 0.832,
+      "score": 0.8442
+    },
+    {
+      "platform": "Web",
+      "post_type": "Web Page",
+      "url": "https://in.pinterest.com/akbarmali07/vijay",
+      "title": "Discover 190 vijay and vijay tvk picture flag background ...",
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/images?q=tbn%3AANd9GcSHBLq0TRFd7ospv0HfmpxxxV-peJMsMCx-7Z8plTQVTPCd0pDF",
+      "face_similarity": 0.7274,
+      "visual_similarity": 0.6327,
+      "score": 0.7263
+    },
+    {
+      "platform": "Reddit",
+      "post_type": "Post / Comment",
+      "url": "https://www.reddit.com/r/KollyGossips/comments/1hh09c2/tea_thalapathy",
+      "title": "Tea Thalapathy? : r/KollyGossips",
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn%3AANd9GcQPhheQihsk9nEdTP_LrV9afwEsVbenSRJUkVqUh-F87aJA4irO",
+      "face_similarity": 0.7626,
+      "visual_similarity": 0.5021,
+      "score": 0.7082
+    },
+    {
+      "platform": "Facebook",
+      "post_type": "Post",
+      "url": "https://www.facebook.com/61579273543444/posts/\u0924\u092e\u093f\u0932\u0928\u093e\u0921\u0941\u0915\u093e-cm-\u0935\u093f\u091c\u092f-\u0925\u0932\u093e\u092a\u0924\u093f\u0932\u0947-\u0917\u0930\u0947-\u0928\u0947\u092a\u093e\u0932\u0932\u093e\u0908-\u0968\u096b-\u0915\u0930\u094b\u0921-\u0938\u0939\u092f\u094b\u0917-\u0928\u0947\u092a\u093e\u0932\u0915\u093e-\u092c\u093e\u0922\u0940-\u092a\u0939\u093f\u0930\u094b-\u092a\u0940\u0921\u093f\u0924-/122168177234975784",
+      "title": "\u0924\u092e\u093f\u0932\u0928\u093e\u0921\u0941\u0915\u093e CM \u0935\u093f\u091c\u092f \u0925\u0932\u093e\u092a\u0924\u093f\u0932\u0947 \u0917\u0930\u0947 ...",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaqyeE3w4agNy8-ho_Pe84wS4ByNjKUStjbc_EnHB5WR_AeJ5N",
+      "face_similarity": 0.8812,
+      "visual_similarity": 0.9048,
+      "score": 0.9002
+    },
+    {
+      "platform": "LinkedIn",
+      "post_type": "Post",
+      "url": "https://www.linkedin.com/posts/satyamurthy-nageswaran-60a9267_tamil-nadu-cm-vijay-draws-record-viewers-activity-7502610518520692736-fpWs",
+      "title": "Tamil Nadu CM Vijay Draws Record Viewers to Assembly Address ...",
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn%3AANd9GcTvkNoDs7ZGqJSHFRg24OHdeFUfv_3ao9LXKtmllCTS2FvCMTUu",
+      "face_similarity": 0.7894,
+      "visual_similarity": 0.9001,
+      "score": 0.8437
+    },
+    {
+      "platform": "LinkedIn",
+      "post_type": "Post",
+      "url": "https://www.linkedin.com/posts/vinodvsharma_tamilnadu-politicalshift-leadership-activity-7457033323765440512-70eV",
+      "title": "tamilnadu #politicalshift #leadership #change #newindia ...",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRG5mJ6sd60sY7MfhOTCzANnwpCm24dDC7oyf1axG6iirk_iR7X",
+      "face_similarity": 0.8471,
+      "visual_similarity": 0.8938,
+      "score": 0.8764
+    },
+    {
+      "platform": "YouTube",
+      "post_type": "Short",
+      "url": "https://www.youtube.com/shorts/oZYy0VUDpWA",
+      "title": "ipadiyellam pannuna - YouTube",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSoV2Eo9h6ztBlP7X0fuUmOTnhYm8PxPgnJICJWYnfXczQfSSpE",
+      "face_similarity": 0.6506,
+      "visual_similarity": 0.4804,
+      "score": 0.6345
+    },
+    {
+      "platform": "Facebook",
+      "post_type": "Post",
+      "url": "https://www.facebook.com/100050301767733/posts/tvk-vijay-/1376771644009548",
+      "title": "Tvk Vijay \u2764\ud83d\udca5",
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn%3AANd9GcROlRkP_dKgJy0dsn-JhL6K8tI95c6SxB74eXOKZ2dcARVie06e",
+      "face_similarity": 0.7489,
+      "visual_similarity": 0.5612,
+      "score": 0.7177
+    },
+    {
+      "platform": "Web",
+      "post_type": "Web Page",
+      "url": "https://in.pinterest.com/dineshkathir7672/actor-vijay-hd-wallpaper-new",
+      "title": "Actor vijay hd wallpaper new",
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn%3AANd9GcTB0lzyT2nT7P-TubjBvfxv_hgGzNeCIqG-AC52LXKfOXgqWGZB",
+      "face_similarity": 0.7068,
+      "visual_similarity": 0.6148,
+      "score": 0.7085
+    }
+  ],
+  "face_model": "InsightFace buffalo_l (ArcFace R100)",
+  "face_similarity": 0.881206,
+  "face_verification": "MATCH",
+  "face_threshold_used": 0.38,
+  "visual_model": "DINOv2 ViT-S/14",
+  "visual_similarity": 0.905839,
+  "visual_verification": "PASS",
+  "visual_threshold_used": 0.6,
+  "final_score": 0.900175,
+  "score_weights": {
+    "face_weight": 0.6,
+    "visual_weight": 0.3,
+    "discovery_weight": 0.1
+  },
+  "discovery_sources": [
+    "google_lens"
+  ],
+  "discovery_confidence": 1.0,
+  "verification_result": "MATCH",
+  "verification_statement": "Candidate image passed face similarity verification and independent visual verification. This verifies image similarity, NOT legal identity or account ownership.",
+  "discovered_at": "2026-09-07T09:57:35.674831+00:00",
+  "pipeline": "TRACE-ID v1.0",
+  "mock_mode": false
+}
